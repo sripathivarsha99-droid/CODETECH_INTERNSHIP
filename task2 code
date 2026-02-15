@@ -1,0 +1,23 @@
+import pandas as pd
+from reportlab.pdfgen import canvas
+
+# Read CSV
+data = pd.read_csv("data.csv")
+
+# Calculate average
+data["Average"] = (data["Maths"] + data["Science"]) / 2
+
+# Create PDF
+c = canvas.Canvas("report.pdf")
+
+c.drawString(200, 800, "Student Report")
+
+y = 750
+for i, row in data.iterrows():
+    text = f"{row['Name']} - Avg: {row['Average']}"
+    c.drawString(100, y, text)
+    y -= 30
+
+c.save()
+
+print("✅ PDF created!")
