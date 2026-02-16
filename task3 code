@@ -1,0 +1,20 @@
+import nltk
+from nltk.chat.util import Chat, reflections
+
+pairs  = [
+    [r"(hi|hello|hey)", ["Hello! How can I help you?"]],
+    [r"what is your name?", ["I am an AI chatbot."]],
+    [r"how are you?", ["I'm fine! Thanks for asking."]],
+    [r"what can you do?", ["I can answer simple questions."]],
+    [r"who created you?", ["I was created as an internship project."]],
+    [r"what is python?", ["Python is a programming language."]],
+    [r"what is ai?", ["AI means Artificial Intelligence."]],
+    [r"thank you", ["You're welcome!"]],
+    [r"bye", ["Goodbye! Have a great day!"]],
+]
+
+
+chat = Chat(pairs, reflections)
+
+print("Chatbot is running... (type 'bye' to exit)")
+chat.converse()
